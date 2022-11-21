@@ -45,22 +45,22 @@ class Program
                             flower.Add(Flower_input);
                             }
                         }
-                    else if(Flower_input == 'R')
-                    {
-                        if(Flower_input == flower.Get(-1))
+                        else if(Flower_input == 'R')
                         {
-                            Console.WriteLine("Invalid pattern.");
-                            //Console.WriteLine("Please try again.");
+                            if(Flower_input == flower.Get(-1))
+                            {
+                                Console.WriteLine("Invalid pattern.");
+                                //Console.WriteLine("Please try again.");
+                            }
+                            else
+                            {
+                                flower.Add(Flower_input);
+                            }
                         }
-                        else
+                        else 
                         {
                             flower.Add(Flower_input);
                         }
-                    }
-                    else 
-                    {
-                        flower.Add(Flower_input);
-                    }
                     }
 
 
