@@ -2,12 +2,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        ProgramHomeWork_01();
-    }
-    static void ProgramHomeWork_01(){
         CircularLinkedList<char> flower = new CircularLinkedList<char>(); 
-        while(true){
-
+        while(true)
+        {
             Console.Write("Input Fower ( J,G,O,R ) : ");
             char Flower_input = char.Parse(Console.ReadLine());
 
@@ -18,36 +15,19 @@ class Program
             else
             {
                 int input_form_users = flower.GetLength();
-
                 if(input_form_users == 0)
                 {
                     if(Flower_input == 'R')
                     {
                         //Console.Clear();
                         Console.WriteLine("Invalid pattern.");
-                        Console.WriteLine("Please try again.");
+                        //Console.WriteLine("Please try again.");
                     }
                     else
                     {
                     flower.Add(Flower_input);
                     }
-                }
-                else if(Flower_input == 'G')
-                    {
-                        if(flower.Get(0) == 'G' && flower.Get(1) == 'G' && flower.Get(2) == 'G')
-                        {
-                            Console.WriteLine("Invalid pattern.");
-                            Console.WriteLine("Please try again.");
-                        }
-                        else if(Flower_input == flower.Get(-1) && Flower_input == flower.Get(-2)&& Flower_input == flower.Get(-3)){
-                            Console.WriteLine("Invalid pattern.");
-                            Console.WriteLine("Please try again.");
-                        }
-                        else
-                        {
-                            flower.Add(Flower_input);
-                        }
-                    }
+                }                
                 else if(input_form_users >= 1)
                 {
 
@@ -55,22 +35,22 @@ class Program
                     {
                         if (flower.Get(-1) == 'R')
                         {
-                        if(Flower_input == flower.Get(-2) || Flower_input == 'R')
-                        {
+                            if(Flower_input == flower.Get(-2) || Flower_input == 'R')
+                            {
                             Console.WriteLine("Invalid pattern.");
-                            Console.WriteLine("Please try again.");
-                        }
-                        else
-                        {
+                            //Console.WriteLine("Please try again.");
+                            }
+                            else
+                            {
                             flower.Add(Flower_input);
+                            }
                         }
-                    }
                     else if(Flower_input == 'R')
                     {
                         if(Flower_input == flower.Get(-1))
                         {
                             Console.WriteLine("Invalid pattern.");
-                            Console.WriteLine("Please try again.");
+                            //Console.WriteLine("Please try again.");
                         }
                         else
                         {
@@ -86,40 +66,60 @@ class Program
 
                     else if(input_form_users >= 3)
                     {
+                        
+                        if(flower.Get(-1) == 'R' && Flower_input == flower.Get(-2))
+                        {
 
-                    if (flower.Get(-1) == 'R' && Flower_input == flower.Get(-2))
-                    {
-                        if (Flower_input == 'R')
-                        {
+                            if(Flower_input == 'R')
+                            {
                             Console.WriteLine("Invalid pattern.");
-                            Console.WriteLine("Please try again.");
+                            //Console.WriteLine("Please try again.");
+                            }
+
+                            else if(Flower_input == flower.Get(-2))
+                            {
+                                Console.WriteLine("Invalid pattern.");
+                                //Console.WriteLine("Please try again.");
+                            }
+                            else
+                            {
+                                flower.Add(Flower_input);
+                            }
                         }
-                        else if (Flower_input == flower.Get(-2))
+
+                        else if(Flower_input == 'R')
                         {
-                            Console.WriteLine("Invalid pattern.");
-                            Console.WriteLine("Please try again.");
+                            if(Flower_input == flower.Get(-1))
+                            {
+                                Console.WriteLine("Invalid pattern.");
+                                //Console.WriteLine("Please try again.");
+                            }
+                            else
+                            {
+                            flower.Add(Flower_input);
+                            }
                         }
-                        else
+                        else if(Flower_input == 'G')
+                        {
+                            if(flower.Get(0) == 'G' && flower.Get(1) == 'G' && flower.Get(2) == 'G' && flower.Get(3) == 'G')
+                            {
+                                Console.WriteLine("Invalid pattern.");
+                                //Console.WriteLine("Please try again.");
+                            }
+                            else if(Flower_input == flower.Get(-1) && Flower_input == flower.Get(-2)&& Flower_input == flower.Get(-3))
+                            {
+                                Console.WriteLine("Invalid pattern.");
+                                //Console.WriteLine("Please try again.");
+                            }
+                            else
+                            {
+                                flower.Add(Flower_input);
+                            }
+                        }
+                        else 
                         {
                             flower.Add(Flower_input);
                         }
-                    }
-                    else if(Flower_input == 'R'){
-                        if(Flower_input == flower.Get(-1))
-                        {
-                            Console.WriteLine("Invalid pattern.");
-                            Console.WriteLine("Please try again.");
-                        }
-                        else
-                        {
-                            flower.Add(Flower_input);
-                        }
-                    }
-                    
-                    else 
-                    {
-                        flower.Add(Flower_input);
-                    }
 
                     }
                 }
@@ -130,11 +130,11 @@ class Program
         int print_totalflower = flower.GetLength();
         Console.Write("Total number of flowers : ");
         Console.WriteLine(print_totalflower);
-        
-        while(index < print_totalflower){
+        while(index < print_totalflower)
+        {
             Console.Write(flower.Get(index));
             index++;
         }
-        Console.WriteLine("");
+        Console.ReadKey();
     }
 }
