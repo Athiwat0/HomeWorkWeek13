@@ -125,9 +125,9 @@ class Program
                 }
             }
         }
-        Console.WriteLine("=================================================");
         int index = 0;
         int print_totalflower = flower.GetLength();
+        
         Console.Write("Total number of flowers : ");
         Console.WriteLine(print_totalflower);
         while(index < print_totalflower)
